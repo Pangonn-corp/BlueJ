@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" class="booting">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login to BlueJ</title>
+<meta name="description" content="Sign in to BlueJ.">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Inter:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css?v=c71ce6ad">
+</head>
+<body>
+
+<main class="login">
+  <!-- 720px panel, left half of the 1440 frame -->
+  <section class="login__panel">
+    <!-- "Login to " is Inter; "BlueJ" is Fredoka One with a blue J. -->
+    <h1 class="login__title">Login to <span class="wordmark__text">Blue<span class="wordmark__j">J</span></span></h1>
+
+    <!-- Sign in. There is no sign-up: accounts are created in the Supabase
+         dashboard, under Authentication -> Users. -->
+    <div class="login__stage" id="stage1">
+      <form class="login__form" id="credentials" novalidate>
+        <input class="field" type="email" id="email" name="email"
+               placeholder="john.doe@example.com" autocomplete="email"
+               aria-label="Email address" required>
+        <input class="field" type="password" id="password" name="password"
+               placeholder="Password" autocomplete="current-password"
+               aria-label="Password" required>
+        <p class="error-text" id="credentials-error" role="alert"></p>
+        <button class="btn" type="submit" style="align-self:center">Continue</button>
+      </form>
+
+      <p class="login__or">Or</p>
+
+      <!-- Google renders its own button in here. The plain one below is
+           shown only when that script cannot be reached, and signs in
+           through the redirect flow instead. -->
+      <div class="google-button" id="google-button" hidden></div>
+      <button class="btn btn--sm" type="button" id="google" hidden>Continue with Google</button>
+    </div>
+  </section>
+
+  <!-- Right half of the frame — drop artwork at img/login-art.jpg -->
+  <aside class="login__art" id="login-art" aria-hidden="true"></aside>
+</main>
+
+<script src="js/store.js?v=d40f77e7"></script>
+<script src="js/data.js?v=f4da5b0b"></script>
+<script src="js/config.js?v=38ac1048"></script>
+<script src="js/auth.js?v=a8f148e7"></script>
+<script src="js/google.js?v=7ec0eb08"></script>
+<script src="js/supabase.js?v=b7401c4e"></script>
+<script src="js/login.js?v=fa9106be"></script>
+</body>
+</html>

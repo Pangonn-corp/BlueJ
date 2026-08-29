@@ -1,0 +1,21 @@
+# Google OAuth client files carry a client_secret. It belongs in the Supabase
+# dashboard (Authentication -> Providers -> Google), never in the repo and
+# never in anything served to a browser.
+client_secret_*.json
+*.client_secret.json
+
+# Scraper credentials: OpenRouter key, Supabase secret key.
+scraper/.env
+scraper/
+tools/
+# Local scraper state
+scraper/data/
+__pycache__/
+*.pyc
+
+# Vendored face model weights are large binaries; keep them if you want the
+# site to work offline, drop this line if you would rather not store 8 MB.
+# public/vendor/face/*.bin
+
+.DS_Store
+Thumbs.db
