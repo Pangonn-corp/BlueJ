@@ -8,6 +8,10 @@ client_secret_*.json
 scraper/.env
 scraper/
 tools/
+
+# Features taken out of the app but kept so they can be put back.
+# See backup/google-signin/RESTORE.md.
+backup/
 # Local scraper state
 scraper/data/
 __pycache__/

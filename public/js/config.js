@@ -18,19 +18,6 @@ window.BlueJConfig = {
 
   supabasePublishableKey: 'sb_publishable_mPqxqnYsQsobk-jK5We8Uw_7hFqzVBU',
 
-  // Google OAuth client ID. Public by design — it identifies the app to
-  // Google and is meant to be read by anyone. The matching client SECRET
-  // (GOCSPX-...) belongs in the Supabase dashboard and must never appear
-  // here, in any file served to a browser, or in the repository.
-  //
-  // Google Cloud Console -> Credentials -> your OAuth 2.0 Client ID.
-  // That client also needs, on the same screen:
-  //   Authorised JavaScript origins:  the site's origin, e.g.
-  //       https://bluejay.onrender.com          (and http://localhost:4173)
-  //   Authorised redirect URIs:       Supabase's callback, NOT this site —
-  //       https://uepdmgyvvlawtzdswtlz.supabase.co/auth/v1/callback
-  googleClientId: '295261384102-v51gbfj3e9lkmjv8kq6bum7m8m807u2f.apps.googleusercontent.com',
-
   // Must match SUPABASE_TABLE in scraper/.env
   supabaseTable: 'links',
 

@@ -1,7 +1,7 @@
 /* ==========================================================================
    BlueJ — sign in.
 
-   Email and password, or Google. There is no sign-up: accounts are created
+   Email and password. There is no sign-up: accounts are created
    in the Supabase dashboard (Authentication -> Users -> Add user, with "Auto
    Confirm User" ticked), which also sidesteps the confirmation email
    entirely. The database creates the matching profile row from a trigger.
@@ -93,47 +93,8 @@ BlueJ.ready().then(function () {
     return message || 'Sign-in failed.';
   }
 
-  /* --- Google ---------------------------------------------------------------
-     Two routes to the same place. Google's own button is the one its
-     branding rules ask for and needs no redirect, but it depends on a script
-     from accounts.google.com. Where that cannot be reached — which is
-     exactly the sort of network this site gets opened on — the plain button
-     takes over and uses the redirect flow, which only needs Supabase.
-     ------------------------------------------------------------------------- */
-
-  var plainGoogle = $('#google');
-
-  plainGoogle.addEventListener('click', function () {
-    credentialError('');
-    plainGoogle.disabled = true;
-    auth.signInWithGoogle(location.origin + location.pathname);
-  });
-
-  window.BlueJGoogle.render($('#google-button'), {
-    width: 320,
-    onSession: function () {
-      credentialError('');
-      afterSignIn();
-    },
-    onError: function (err) {
-      credentialError(err.message);
-    },
-    onUnavailable: function (err) {
-      // Not shown as an error: sign-in still works, just by the other route.
-      console.warn('Google button unavailable — ' + err.message);
-    }
-  }).then(function (rendered) {
-    if (!rendered) { plainGoogle.hidden = false; }
-  });
-
   /* --- Arrival --------------------------------------------------------------- */
 
-  // Google sends the browser back here; exchanging its code is a request, so
-  // this waits rather than assuming.
-  auth.captureRedirect().then(function (returned) {
-    if (returned && returned.error) { return credentialError(returned.error); }
-    if (returned && returned.user) { return afterSignIn(); }
-    // Already has a session: send them straight on.
-    if (auth.signedIn()) { return afterSignIn(); }
-  });
+  // Already signed in: straight on, no form.
+  if (auth.signedIn()) { afterSignIn(); }
 });

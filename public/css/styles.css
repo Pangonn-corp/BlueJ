@@ -1605,12 +1605,6 @@ img { max-width: 100%; display: block; }
 }
 .news-item__actions { display: flex; gap: var(--sp-1); }
 
-/* --- Google's own button -------------------------------------------------- */
-/* Google renders and styles the button itself; this only positions the box
-   it goes in. Restyling the button is against their branding rules and would
-   be overwritten on their next release anyway. */
-.google-button { display: flex; justify-content: center; min-height: 44px; }
-
 /* --- Confirmation dialog -------------------------------------------------- */
 .dialog--confirm { max-width: 420px; }
 .dialog--confirm .dialog__title { margin-bottom: var(--sp-2); font-size: var(--fs-md); }
