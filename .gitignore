@@ -9,6 +9,12 @@ scraper/.env
 scraper/
 tools/
 
+# Readable source. public/ is the obfuscated build produced from here by
+# tools/build/build.mjs -- edit files in src/, run the build, deploy public/.
+# The original source is kept out of the repo on purpose; it is still in git
+# history (every commit before the build) if this working copy is ever lost.
+src/
+
 # Features taken out of the app but kept so they can be put back.
 # See backup/google-signin/RESTORE.md.
 backup/
