@@ -15,6 +15,10 @@ tools/
 # history (every commit before the build) if this working copy is ever lost.
 src/
 
+# Working clone of scraper.git, used by tools/publish-all.ps1 -t to sync
+# scraper/ + tools/ up to that repo. Disposable; re-created on demand.
+.publish/
+
 # Features taken out of the app but kept so they can be put back.
 # See backup/google-signin/RESTORE.md.
 backup/
